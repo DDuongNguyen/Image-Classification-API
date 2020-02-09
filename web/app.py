@@ -11,8 +11,8 @@ import pdb
 app = Flask(__name__)
 api = Api(app)
 
-# client = MongoClient('mongodb://localhost:27017')
-client = MongoClient('mongodb://db:27017')
+client = MongoClient('mongodb://localhost:27017')
+# client = MongoClient('mongodb://db:27017')
 db = client.ImageRecognition
 users = db.Users
 
@@ -87,8 +87,8 @@ class Classify(Resource):
                                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
             ret = proc.communicate()[0]
             proc.wait()
-            with open("text.txt") as f:
-                retJson = json.load(f)
+            with open("text.txt") as g:
+                retJson = json.load(g)
 
 
         users.update({"Username": username}, {
